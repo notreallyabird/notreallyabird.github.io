@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects | Kendall Binkley</title>
+
+  <style>
+    :root {
+      --bg: #0D0D0F;
+      --panel: #202226;
+      --panel-hover: #292B30;
+      --text: #F1EDE6;
+      --muted: #A7A9AF;
+      --accent: #B8202F;
+      --red-bright: #E13B49;
+      --line: #393A40;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      color: var(--muted);
+    }
+
+    .back-link:hover {
+      color: var(--red-bright);
+    }
+
+    header {
+      padding: 80px 0 45px;
+    }
+
+    .eyebrow {
+      color: var(--red-bright);
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+    }
+
+    .intro {
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+
+    .project {
+      overflow: hidden;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .project-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 18px;
+      background: #17181B;
+      border: 1px solid var(--line);
+      object-fit: cover;
+    }
+
+    .project h2 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .project p {
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 4px 0 0;
+      padding: 4px 9px;
+      color: var(--text);
+      background: #303137;
+      font-size: 0.78rem;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 650px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">KB / ENGINEERING</a>
+      <a class="back-link" href="index.html">← Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header>
+      <div class="eyebrow">Engineering Portfolio</div>
+      <h1>All Projects.</h1>
+      <p class="intro">
+        A collection of engineering projects spanning robotics,
+        mechanical design, fabrication, electronics, and research.
+      </p>
+    </header>
+
+    <section class="project-grid">
+
+      <article class="project">
+        <img class="project-image"
+             src="images/frc-robot.jpg"
+             alt="FRC robot">
+        <h2>FRC Robot Design</h2>
+        <p>
+          Mechanical design, prototyping, fabrication, and
+          robot integration for FIRST Robotics Competition.
+        </p>
+        <span class="tag">CAD</span>
+        <span class="tag">Fabrication</span>
+        <span class="tag">Robotics</span>
+      </article>
+
+      <article class="project">
+        <img class="project-image"
+             src="images/robot-cart.jpg"
+             alt="Adjustable robot work cart">
+        <h2>Any Level Robot Cart</h2>
+        <p>
+          A custom height-adjustable work platform designed
+          to improve accessibility during robot maintenance.
+        </p>
+        <span class="tag">Mechanical Design</span>
+        <span class="tag">Manufacturing</span>
+      </article>
+
+      <article class="project">
+        <img class="project-image"
+             src="images/third-arm.jpg"
+             alt="Wearable third arm prototype">
+        <h2>Wearable Third Arm</h2>
+        <p>
+          An experimental wearable mechanism combining
+          custom 3D-printed parts, electronics, and actuation.
+        </p>
+        <span class="tag">3D Printing</span>
+        <span class="tag">Electronics</span>
+      </article>
+
+      <article class="project">
+        <img class="project-image"
+             src="images/ares.jpg"
+             alt="Ares combat robot">
+        <h2>Ares Combat Robot</h2>
+        <p>
+          Competition robotics involving mechanical systems,
+          robot operation, testing, and iterative development.
+        </p>
+        <span class="tag">Combat Robotics</span>
+        <span class="tag">Testing</span>
+      </article>
+
+      <!-- Copy a project article to add more projects here. -->
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Kendall Binkley · Engineering Portfolio
+    </div>
+  </footer>
+</body>
+</html>

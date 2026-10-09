@@ -128,6 +128,23 @@
       color: var(--muted);
     }
 
+    .project-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .project-link:hover {
+      background: var(--panel-hover);
+      transform: translateY(-4px);
+    }
+
+    .project-link:focus-visible {
+      outline: 2px solid var(--red-bright);
+      outline-offset: 4px;
+    }
+
     .tag {
       display: inline-block;
       margin: 4px 4px 0 0;
@@ -169,65 +186,32 @@
       <div class="eyebrow">Engineering Portfolio</div>
       <h1>All Projects.</h1>
       <p class="intro">
-        A collection of engineering projects spanning robotics,
+        A collection of all of my engineering projects, spanning robotics,
         mechanical design, fabrication, electronics, and research.
       </p>
     </header>
 
     <section class="project-grid">
 
-      <article class="project">
-        <img class="project-image"
-             src="images/frc-robot.jpg"
-             alt="FRC robot">
-        <h2>FRC Robot Design</h2>
-        <p>
-          Mechanical design, prototyping, fabrication, and
-          robot integration for FIRST Robotics Competition.
-        </p>
-        <span class="tag">CAD</span>
-        <span class="tag">Fabrication</span>
-        <span class="tag">Robotics</span>
-      </article>
+    <a href="project_1.html" class="project project-link"> <img class="project-image" src="images/frc-robot.jpg" alt="FRC robot">
+      <h2>Project 1</h2>
+      <p> 
+        TEXT
+      </p>
+      <span class="tag">CAD</span>
+      <span class="tag">Fabrication</span>
+      <span class="tag">Robotics</span>
+    </a>
 
-      <article class="project">
-        <img class="project-image"
-             src="images/robot-cart.jpg"
-             alt="Adjustable robot work cart">
-        <h2>Any Level Robot Cart</h2>
-        <p>
-          A custom height-adjustable work platform designed
-          to improve accessibility during robot maintenance.
-        </p>
-        <span class="tag">Mechanical Design</span>
-        <span class="tag">Manufacturing</span>
-      </article>
-
-      <article class="project">
-        <img class="project-image"
-             src="images/third-arm.jpg"
-             alt="Wearable third arm prototype">
-        <h2>Wearable Third Arm</h2>
-        <p>
-          An experimental wearable mechanism combining
-          custom 3D-printed parts, electronics, and actuation.
-        </p>
-        <span class="tag">3D Printing</span>
-        <span class="tag">Electronics</span>
-      </article>
-
-      <article class="project">
-        <img class="project-image"
-             src="images/ares.jpg"
-             alt="Ares combat robot">
-        <h2>Ares Combat Robot</h2>
-        <p>
-          Competition robotics involving mechanical systems,
-          robot operation, testing, and iterative development.
-        </p>
-        <span class="tag">Combat Robotics</span>
-        <span class="tag">Testing</span>
-      </article>
+    <a href="project_2.html" class="project project-link"> <img class="project-image" src="images/frc-robot.jpg" alt="FRC robot">
+      <h2>Project 2</h2>
+      <p> 
+        TEXT
+      </p>
+      <span class="tag">CAD</span>
+      <span class="tag">Fabrication</span>
+      <span class="tag">Robotics</span>
+    </a>
 
       <!-- Copy a project article to add more projects here. -->
 

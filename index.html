@@ -123,6 +123,8 @@
   isolation: isolate;
   overflow: hidden;
   background: #0D0D0F;
+
+  padding: 50px 20px;
 }
 
 .hero::before {
@@ -208,6 +210,16 @@
   .button.secondary:hover {
     border-color: var(--silver);
     background: var(--panel);
+  }
+
+  .projects-cta {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0 70px;
+  }
+
+  .projects-cta .button {
+    margin-right: 0;
   }
 
   /* ========================================
@@ -488,6 +500,13 @@
           </article>
         </div>
       </section>
+
+      <div class="projects-cta">
+        <a href="projects.html" class="button">
+          View All Projects
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
 
       <section id="skills">
         <div class="section-label">03 / Capabilities</div>

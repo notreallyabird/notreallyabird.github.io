@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Project 1 | Kendall Binkley</title>
+
+  <style>
+    :root {
+      --bg: #0D0D0F;
+      --panel: #202226;
+      --panel-hover: #292B30;
+      --text: #F1EDE6;
+      --muted: #A7A9AF;
+      --accent: #B8202F;
+      --red-bright: #E13B49;
+      --silver: #D7D9DD;
+      --line: #393A40;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--red-bright);
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--red-bright);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin: 18px 0;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h3 {
+      line-height: 1.3;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      color: var(--silver);
+      padding: 5px 11px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .overview-item {
+      background: var(--panel);
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .overview-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+
+    .overview-item strong {
+      font-size: 1rem;
+    }
+
+    .content-section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 30px;
+    }
+
+    .section-number {
+      color: var(--red-bright);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 42px;
+      margin: 36px 0;
+    }
+
+    .split.reverse .media {
+      order: 2;
+    }
+
+    .split.reverse .copy {
+      order: 1;
+    }
+
+    .media img,
+    .gallery img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .media img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .copy p,
+    .section-intro {
+      color: var(--muted);
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      aspect-ratio: 4 / 3;
+    }
+
+    figure {
+      margin: 0;
+      min-width: 0;
+    }
+
+    figcaption {
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding-top: 10px;
+    }
+
+    .results {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .results p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .page-links {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 35px 0;
+    }
+
+    .page-links a {
+      text-decoration: none;
+      color: var(--silver);
+    }
+
+    .page-links a:hover {
+      color: var(--red-bright);
+    }
+
+    footer {
+      padding: 25px 0 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 65px 0 50px;
+      }
+
+      .overview {
+        grid-template-columns: 1fr;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .split.reverse .media,
+      .split.reverse .copy {
+        order: initial;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        padding: 48px 0;
+      }
+
+      .page-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav>
+      <a class="brand" href="../index.html">
+        KENDALL BINKLEY
+      </a>
+      <a href="../projects.html">
+        &larr; All Projects
+      </a>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">
+        Robotics / Mechanical Engineering
+      </div>
+
+      <h1>Project 1</h1>
+
+      <p class="intro">
+        TEXT
+      </p>
+
+      <div class="tags">
+        <span class="tag">CAD</span>
+        <span class="tag">Fabrication</span>
+        <span class="tag">Mechanical Design</span>
+        <span class="tag">Robotics</span>
+      </div>
+    </header>
+
+    <section class="overview">
+      <div class="overview-item">
+        <span>ROLE</span>
+        <strong>Mechanical Design Lead</strong>
+      </div>
+
+      <div class="overview-item">
+        <span>TOOLS</span>
+        <strong>CAD / CNC / 3D Printing</strong>
+      </div>
+
+      <div class="overview-item">
+        <span>PROJECT</span>
+        <strong>FIRST Robotics Competition</strong>
+      </div>
+    </section>
+
+    <main>
+
+      <section class="content-section" id="overview">
+        <div class="section-number">01 / OVERVIEW</div>
+        <h2>SUBJECT</h2>
+
+        <p class="section-intro">
+          TEXT
+        </p>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/frc-robot.jpg"
+              alt="Completed FRC robot"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>SUBJECT</h3>
+            <p>
+              TEXT
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="design">
+        <div class="section-number">02 / DESIGN</div>
+        <h2>SUBJECT</h2>
+
+        <p class="section-intro">
+          TEXT
+        </p>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/frc-cad.jpg"
+              alt="CAD assembly of the robot"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>SUBJECT</h3>
+            <p>
+              TEXT
+            </p>
+          </div>
+        </div>
+
+        <div class="split reverse">
+          <figure class="media">
+            <img
+              src="../images/frc-detail.jpg"
+              alt="Close-up of a robot mechanism"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>SUBJECT</h3>
+            <p>
+              TEXT
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="fabrication">
+        <div class="section-number">03 / FABRICATION</div>
+        <h2>SECTION</h2>
+
+        <p class="section-intro">
+          TEXT
+        </p>
+
+        <div class="gallery">
+          <figure>
+            <img
+              src="../images/frc-fabrication.jpg"
+              alt="Fabrication process"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../images/frc-assembly.jpg"
+              alt="Robot assembly in progress"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="copy">
+          <h3>SUBJECT</h3>
+          <p>
+            TEXT
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section" id="testing">
+        <div class="section-number">04 / TESTING</div>
+        <h2>SECTION</h2>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/frc-testing.jpg"
+              alt="Robot undergoing testing"
+              loading="lazy">
+            <figcaption>
+              CAPTION
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>SUBJECT</h3>
+            <p>
+              TEXT
+            </p>
+          </div>
+        </div>
+
+        <div class="results">
+          <h3>SUBJECT</h3>
+          <p>
+            TEXT
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section" id="gallery">
+        <div class="section-number">05 / GALLERY</div>
+        <h2>SECTION</h2>
+
+        <p class="section-intro">
+          TEXT
+        </p>
+
+        <div class="gallery">
+          <figure>
+            <img
+              src="../images/PLACEHOLDER.jpg"
+              alt="Robot detail view"
+              loading="lazy">
+            <figcaption>CAPTION</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../images/PLACEHOLDER.jpg"
+              alt="Robot at competition"
+              loading="lazy">
+            <figcaption>CAPTION</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../images/PLACEHOLDER.jpg"
+              alt="Robot CAD detail"
+              loading="lazy">
+            <figcaption>CAPTION</figcaption>
+          </figure>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div class="page-links">
+      <a href="../projects.html">
+        &larr; Back to All Projects
+      </a>
+      <a href="../index.html">
+        Portfolio Home &uarr;
+      </a>
+    </div>
+
+    <footer>
+      &copy; 2026 Kendall Binkley
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Engineering portfolio showcasing mechanical design, robotics, research, and manufacturing projects.">
+  <title>Kendall Binkley | Engineering Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #101820;
+      --panel: #182530;
+      --text: #edf2f7;
+      --muted: #a7b5c2;
+      --accent: #67d5c2;
+      --line: #30414d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-weight: bold;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 110px 0 100px;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1.08;
+      margin: 18px 0;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #101820;
+      padding: 11px 19px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    section {
+      padding: 65px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 8px 0 28px;
+    }
+
+    .about {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 25px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .project h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin: 3px 4px 3px 0;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 8px 13px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">KB. / Engineering</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <header class="hero" id="home">
+        <div class="eyebrow">Mechanical Engineering · Robotics · Design</div>
+        <h1>Kendall Binkley</h1>
+        <p>
+          Mechanical engineering student at MIT passionate about
+          turning ideas into functional systems through design,
+          prototyping, manufacturing, and robotics.
+        </p>
+        <a class="button" href="#projects">Explore my work ↘</a>
+        <a class="button secondary" href="#contact">Get in touch</a>
+      </header>
+
+      <section id="about">
+        <div class="section-label">01 / About</div>
+        <h2>Engineering through making.</h2>
+        <p class="about">
+          I enjoy taking a problem from an initial concept through CAD,
+          fabrication, assembly, and testing. My interests span
+          mechanical systems, robotics, additive manufacturing,
+          electronics, and product development. I am particularly
+          interested in projects where hands-on experimentation
+          and thoughtful engineering come together.
+        </p>
+      </section>
+
+      <section id="projects">
+        <div class="section-label">02 / Selected work</div>
+        <h2>Projects</h2>
+
+        <div class="project-grid">
+          <article class="project">
+            <h3>FRC Robot Design</h3>
+            <p>
+              Mechanical design, prototyping, and integration of
+              custom mechanisms for competitive robotics.
+              Explore the design decisions, iterations, and lessons
+              learned throughout the build.
+            </p>
+            <span class="tag">CAD</span>
+            <span class="tag">Manufacturing</span>
+            <span class="tag">Robotics</span>
+          </article>
+
+          <article class="project">
+            <h3>Any Level Robot Cart</h3>
+            <p>
+              A custom adjustable work platform designed to improve
+              robot access during assembly and maintenance, combining
+              a lifting mechanism with integrated tool storage.
+            </p>
+            <span class="tag">Mechanical Design</span>
+            <span class="tag">Fabrication</span>
+          </article>
+
+          <article class="project">
+            <h3>Wearable Third Arm</h3>
+            <p>
+              An experimental wearable mechanism exploring
+              articulated motion, custom 3D-printed parts,
+              embedded electronics, and a controllable gripper.
+            </p>
+            <span class="tag">3D Printing</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">Prototyping</span>
+          </article>
+
+          <article class="project">
+            <h3>Research & Engineering</h3>
+            <p>
+              Research and technical work focused on developing
+              practical engineering systems. Project pages will
+              document objectives, methods, design choices,
+              results, and future improvements.
+            </p>
+            <span class="tag">Research</span>
+            <span class="tag">Technical Writing</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-label">03 / Capabilities</div>
+        <h2>Technical skills</h2>
+        <div class="skills">
+          <span class="skill">Onshape</span>
+          <span class="skill">Fusion 360</span>
+          <span class="skill">3D Printing</span>
+          <span class="skill">CNC Manufacturing</span>
+          <span class="skill">Mechanical Design</span>
+          <span class="skill">Electronics</span>
+          <span class="skill">Arduino</span>
+          <span class="skill">Python</span>
+          <span class="skill">MATLAB</span>
+          <span class="skill">Prototyping</span>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-label">04 / Contact</div>
+        <h2>Let's connect.</h2>
+        <p class="about">
+          Interested in engineering, robotics, research, or
+          collaborating on a project? Feel free to reach out.
+        </p>
+        <p style="margin-top: 20px;">
+          <a class="button" href="mailto:YOUR-EMAIL@example.com">
+            Email me
+          </a>
+          <a class="button secondary"
+             href="https://github.com/YOUR-USERNAME">
+            GitHub profile
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Kendall Binkley · Engineering Portfolio</p>
+    </footer>
+  </div>
+</body>
+</html>

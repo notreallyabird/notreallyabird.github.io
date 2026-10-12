@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Excavator Tilt Rotator | Kendall Binkley</title>
+
+  <style>
+    :root {
+      --bg: #0D0D0F;
+      --panel: #202226;
+      --panel-hover: #292B30;
+      --text: #F1EDE6;
+      --muted: #A7A9AF;
+      --accent: #B8202F;
+      --red-bright: #E13B49;
+      --silver: #D7D9DD;
+      --line: #393A40;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--red-bright);
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--red-bright);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin: 18px 0;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h3 {
+      line-height: 1.3;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      color: var(--silver);
+      padding: 5px 11px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .overview-item {
+      background: var(--panel);
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .overview-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+
+    .overview-item strong {
+      font-size: 1rem;
+    }
+
+    .content-section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 30px;
+    }
+
+    .section-number {
+      color: var(--red-bright);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 42px;
+      margin: 36px 0;
+    }
+
+    .split.reverse .media {
+      order: 2;
+    }
+
+    .split.reverse .copy {
+      order: 1;
+    }
+
+    .media img,
+    .gallery img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .media img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .copy {
+      max-width: 540px;
+    }
+
+    .copy h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .copy p {
+      color: #C5C5CA;
+      font-size: 1rem;
+      line-height: 1.8;
+      font-weight: 400;
+      margin: 0 0 16px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      aspect-ratio: 4 / 3;
+    }
+
+    figure {
+      margin: 0;
+      min-width: 0;
+    }
+
+    figcaption {
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding-top: 10px;
+    }
+
+    .results {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .results p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .page-links {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 35px 0;
+    }
+
+    .page-links a {
+      text-decoration: none;
+      color: var(--silver);
+    }
+
+    .page-links a:hover {
+      color: var(--red-bright);
+    }
+
+    footer {
+      padding: 25px 0 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 65px 0 50px;
+      }
+
+      .overview {
+        grid-template-columns: 1fr;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .split.reverse .media,
+      .split.reverse .copy {
+        order: initial;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        padding: 48px 0;
+      }
+
+      .page-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav>
+      <a class="brand" href="../index.html">
+        KENDALL BINKLEY
+      </a>
+      <a href="../projects.html">
+        &larr; All Projects
+      </a>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">
+        Robotics / Mechanical Engineering
+      </div>
+
+      <h1>1/12-scale Excavator Tilt Rotator</h1>
+
+      <p class="intro">
+        1/12-scale excavator tilt rotator developed for teleoperation and operator training research at MIT's The 77 Lab.
+      </p>
+
+      <div class="tags">
+            <span class="tag">Research</span>
+            <span class="tag">CAD</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">Manufacturing</span>
+      </div>
+    </header>
+
+    <section class="overview">
+      <div class="overview-item">
+        <span>ROLE</span>
+        <strong>Undergraduate Researcher</strong>
+      </div>
+
+      <div class="overview-item">
+        <span>TOOLS</span>
+        <strong>Programming / 3D Printing / Manual Machining</strong>
+      </div>
+
+      <div class="overview-item">
+        <span>PROJECT</span>
+        <strong>MIT The 77 Lab</strong>
+      </div>
+    </section>
+
+    <main>
+
+      <section class="content-section" id="overview">
+        <div class="section-number">01 / OVERVIEW</div>
+        <h2>What is a Tilt Rotator?</h2>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/tilt_rotator_imgs/tr_cover_photo.jpg"
+              alt="Fully Assembled Tilt Rotator"
+              loading="lazy">
+            <figcaption>
+              Fully Assembled and functional Tilt Rotator.
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <p>
+               ARES is a 30-pound combat robot competing in the National Havoc Robotics League (NHRL). Its primary weapon is a precision-machined S7 tool steel beater bar, designed with mass concentrated toward its outer edges to maximize rotational inertia and deliver substantial kinetic energy upon impact. The rest of the robot serves as a durable, high-speed platform, maneuvering to deliver weapon strikes while evading and defending against opposing attacks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="design">
+        <div class="section-number">02 / Design</div>
+        <h2>My Work / Contributions</h2>
+
+        <p class="section-intro">
+          Since joining the ARES team in January 2026, I have designed and implemented several components for the robot.
+        </p>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/ARES_imgs/ARES_antidrum_forks.JPG"
+              alt="ARES Anti-drum forks"
+              loading="lazy">
+            <figcaption>
+              ARES at the October 2026 NHRL Competition, with my newly designed "Anti-Drum Forks."
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>Anti-Drum Forks</h3>
+            <p>
+              Wide vertical spinners, commonly known as beaters or drums, are becoming increasingly prevalent in combat robotics due to their ability to deliver significant kinetic energy upon impact. One effective countermeasure is to deflect these impacts back into the opposing weapon using sloped, metal-tipped forks. I designed these forks from A36 steel, using a hydraulic press brake to form the angled profiles needed to counter these powerful weapons and withstand repeated impacts. The steel tips are mounted to more compliant UHMW extensions, reducing weight while remaining protected by the steel contact surfaces.
+            </p>
+          </div>
+        </div>
+
+        <div class="split reverse">
+          <figure class="media">
+            <img
+              src="../images/ARES_imgs/ARES_top_armor_3.JPG"
+              alt="ARES New AR500 Top Armor"
+              loading="lazy">
+            <figcaption>
+              ARES at the October 2026 NHRL Competition, with my newly designed heavy top armor.
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>AR500 Heavy Top Armor</h3>
+            <p>
+              Another increasingly common threat in combat robotics is the hammersaw, which combines a smaller spinning weapon with a hammer mechanism to precisely direct strikes onto the tops of opposing robots. These attacks can damage vulnerable internal components that are otherwise well protected, including the lithium-polymer batteries that power the robot.
+
+              To prepare for these matchups, I designed a new top armor configuration for ARES using 1/8-inch AR500 steel to protect its internal components against penetrating strikes. This design proved particularly effective during our first fight in October 2026, when we faced two hammersaws simultaneously and emerged relatively unscathed.
+            </p>
+          </div>
+        </div>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/ARES_imgs/ARES_new_ears.JPG"
+              alt="ARES New Inverted Drive Ears"
+              loading="lazy">
+            <figcaption>
+              Newly designed and manufactured ARES "ears," used for inverted driving.
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>UHMW Inverted Drive Ears</h3>
+            <p>
+               One issue ARES experienced at previous competitions was with its inverted driving system. When facing robots with horizontal spinners or competing in more chaotic fights, the inverted drive "ears" mounted atop the robot were prone to breaking. In some cases, the broken pieces would fall into the weapon mechanism, jamming it entirely and making self-righting more difficult. To address this, I redesigned the ears to sit much deeper within ARES, moving them out of the primary impact zone and reducing the likelihood of debris interfering with the weapon. I then CNC-machined the redesigned components in-house, improving their integration with the existing chassis and helping ARES maintain reliable driving and weapon operation throughout a fight.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="testing">
+        <div class="section-number">04 / COMPETING AND TESTING</div>
+        <h2>Performance at Competition</h2>
+
+        <div class="split">
+          <figure class="media">
+            <img
+              src="../images/ARES_imgs/ARES_april_26.JPG"
+              alt="ARES in a match"
+              loading="lazy">
+            <figcaption>
+              ARES, going into the Finals of the April 2026 NHRL Competition.
+            </figcaption>
+          </figure>
+
+          <div class="copy">
+            <h3>Results:</h3>
+            <p>
+              March 2026: Quarter-Finalist<br>
+              April 2026: Finalist<br>
+              October 2026: Semi-Finalist<br> <br>
+
+              Lifetime Match Record: 27 Wins, 13 Losses
+            </p>
+          </div>
+        </div>
+
+        <div class="results">
+          <h3>CURRENT CONCLUSION</h3>
+          <p>
+            ARES has had a great year so far! Through designing and implementing several key modifications, I have helped improve the robot's durability and reliability while learning from the failures and challenges we've encountered along the way. As we prepare for the NHRL World Championship in December 2026, I am excited to continue refining my designs, identifying areas for improvement, and developing new modifications to give ARES an edge over the competition.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section" id="gallery">
+        <div class="section-number">05 / GALLERY</div>
+        <h2>More of my Work / ARES Photos</h2>
+
+        <div class="gallery">
+          <figure>
+            <img
+              src="../images/ARES_imgs/ARES_beater_FEA.PNG"
+              alt="ARES Beater FEA"
+              loading="lazy">
+            <figcaption>Finite Element Anaylsis I performed on the weapon of ARES, to learn critical failure points and design accordingly.</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../images/ARES_imgs/ARES_cracked_beater.JPG"
+              alt="ARES Broken Weapon"
+              loading="lazy">
+            <figcaption>A broken weapon following the finals match of April 2026, warranting the FEA and weapon redesign.</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../images/ARES_imgs/ARES_hero_shot.JPG"
+              alt="Robot CAD detail"
+              loading="lazy">
+            <figcaption>ARES team photo in March 2026.</figcaption>
+          </figure>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div class="page-links">
+      <a href="../projects.html">
+        &larr; Back to All Projects
+      </a>
+      <a href="../index.html">
+        Portfolio Home &uarr;
+      </a>
+    </div>
+
+    <footer>
+      &copy; 2026 Kendall Binkley
+    </footer>
+
+  </div>
+</body>
+</html>

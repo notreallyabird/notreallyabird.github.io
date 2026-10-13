@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="A 1/12-scale, electrically actuated excavator tilt rotator for teleoperation research and operator training at MIT's The 77 Lab.">
   <title>Excavator Tilt Rotator | Kendall Binkley</title>
 
   <style>
@@ -26,11 +25,14 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 24px;
     }
 
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(ellipse at 82% 8%, rgba(184, 32, 47, 0.12), transparent 34rem),
+        var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
@@ -40,8 +42,13 @@
       color: inherit;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .container {
-      width: min(1100px, 90%);
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
@@ -49,273 +56,501 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 24px 0;
+      gap: 24px;
+      padding: 22px 0;
       border-bottom: 1px solid var(--line);
     }
 
     nav a {
-      text-decoration: none;
       color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus-visible {
       color: var(--red-bright);
     }
 
     .brand {
       color: var(--text);
-      font-weight: bold;
+      font-weight: 800;
+      letter-spacing: 0.08em;
     }
 
     .hero {
-      padding: 90px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: clamp(36px, 7vw, 82px);
+      padding: clamp(54px, 8vw, 96px) 0 76px;
       border-bottom: 1px solid var(--line);
     }
 
-    .eyebrow {
+    .eyebrow,
+    .section-number {
       color: var(--red-bright);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: bold;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      line-height: 1.05;
       margin: 18px 0;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
     }
 
     h2 {
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-      line-height: 1.2;
-      margin-top: 0;
+      margin: 8px 0 18px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
 
     h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
       line-height: 1.3;
     }
 
-    .intro {
-      max-width: 760px;
+    p {
+      margin: 0 0 16px;
+    }
+
+    .hero-copy {
+      max-width: 540px;
+    }
+
+    .hero-copy .intro {
+      color: var(--silver);
+      font-size: 1.12rem;
+    }
+
+    .hero-image {
+      position: relative;
+      margin: 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--panel), #17181B);
+    }
+
+    .hero-image::after {
+      position: absolute;
+      z-index: -1;
+      inset: 18px -12px -12px 18px;
+      border: 1px solid var(--accent);
+      content: "";
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 1.18;
+      object-fit: cover;
+      object-position: center 43%;
+    }
+
+    .hero-image figcaption,
+    .photo-card figcaption {
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 0.84rem;
+    }
+
+    .hero-image figcaption {
+      padding: 10px 4px 2px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     .tag {
+      padding: 5px 10px;
       border: 1px solid var(--line);
-      color: var(--silver);
-      padding: 5px 11px;
       border-radius: 4px;
-      font-size: 0.82rem;
+      color: var(--silver);
+      font-size: 0.78rem;
     }
 
     .overview {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .overview-item {
-      background: var(--panel);
-      padding: 20px;
+    .stat {
+      min-height: 104px;
+      padding: 17px 18px;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 6px;
+      background: rgba(32, 34, 38, 0.72);
     }
 
-    .overview-item span {
+    .stat strong,
+    .stat span {
       display: block;
+    }
+
+    .stat strong {
+      color: var(--text);
+      font-size: clamp(1.25rem, 2.7vw, 1.8rem);
+      line-height: 1.25;
+    }
+
+    .stat span {
+      margin-top: 7px;
       color: var(--muted);
       font-size: 0.8rem;
-      margin-bottom: 6px;
-    }
-
-    .overview-item strong {
-      font-size: 1rem;
     }
 
     .content-section {
-      padding: 70px 0;
+      padding: 76px 0;
       border-bottom: 1px solid var(--line);
-      scroll-margin-top: 30px;
+      scroll-margin-top: 24px;
     }
 
     .section-number {
-      color: var(--red-bright);
-      font-size: 0.8rem;
-      font-weight: bold;
-      letter-spacing: 0.12em;
       margin-bottom: 12px;
     }
 
     .section-intro {
-      color: var(--muted);
       max-width: 760px;
       margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .split {
+    .overview-layout,
+    .technical-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
       align-items: center;
-      gap: 42px;
-      margin: 36px 0;
+      gap: clamp(28px, 6vw, 68px);
     }
 
-    .split.reverse .media {
-      order: 2;
+    .overview-layout p,
+    .technical-layout p {
+      color: #C5C5CA;
     }
 
-    .split.reverse .copy {
-      order: 1;
-    }
-
-    .media img,
-    .gallery img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
+    .overview-photo,
+    .technical-photo {
+      margin: 0;
+      overflow: hidden;
       border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .overview-photo img,
+    .technical-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .overview-photo figcaption,
+    .technical-photo figcaption {
+      padding: 10px 13px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .design-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: linear-gradient(145deg, var(--panel), #17181B);
+    }
+
+    .design-card .card-index {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--red-bright);
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+    }
+
+    .design-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .technical-layout {
+      margin-top: 30px;
+    }
+
+    .technical-layout h3 {
+      margin-top: 24px;
+      color: var(--text);
+    }
+
+    .technical-layout h3:first-child {
+      margin-top: 0;
+    }
+
+    .spec-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .spec-list li {
+      padding: 13px 15px;
+      border-left: 2px solid var(--accent);
+      background: var(--panel);
+      color: var(--silver);
+      font-size: 0.92rem;
+    }
+
+    .results-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 32px;
+      align-items: start;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
       border-radius: 6px;
       background: var(--panel);
     }
 
-    .media img {
-      aspect-ratio: 4 / 3;
+    .results-panel p {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .copy {
-      max-width: 540px;
+    .result-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
     }
 
-    .copy h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      margin: 0 0 16px;
+    .result-metric {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #17181B;
+    }
+
+    .result-metric strong,
+    .result-metric span {
+      display: block;
+    }
+
+    .result-metric strong {
+      font-size: 1.2rem;
+    }
+
+    .result-metric span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .paper-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .paper-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .paper-details {
+      padding: 21px 22px 12px;
+    }
+
+    .paper-details h3 {
+      font-size: 1.15rem;
+    }
+
+    .paper-details p {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .paper-preview {
+      display: block;
+      width: 100%;
+      height: 440px;
+      border: 0;
+      border-top: 1px solid var(--line);
+      background: #F5F5F5;
+    }
+
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 15px 22px 19px;
+    }
+
+    .paper-actions a {
+      color: var(--red-bright);
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .paper-actions a:hover,
+    .paper-actions a:focus-visible {
       color: var(--text);
-    }
-
-    .copy p {
-      color: #C5C5CA;
-      font-size: 1rem;
-      line-height: 1.8;
-      font-weight: 400;
-      margin: 0 0 16px;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      max-width: 700px;
-      margin-bottom: 32px;
-    }
-
-    .caption {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 10px;
+      text-decoration: underline;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 30px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .gallery img {
-      aspect-ratio: 4 / 3;
-    }
-
-    figure {
+    .photo-card {
       margin: 0;
-      min-width: 0;
-    }
-
-    figcaption {
-      color: var(--muted);
-      font-size: 0.88rem;
-      padding-top: 10px;
-    }
-
-    .results {
-      background: var(--panel);
+      overflow: hidden;
       border: 1px solid var(--line);
-      border-left: 3px solid var(--accent);
       border-radius: 6px;
-      padding: 24px;
-      margin-top: 30px;
+      background: var(--panel);
     }
 
-    .results p {
-      color: var(--muted);
-      margin-bottom: 0;
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
     }
 
-    .page-links {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 35px 0;
-    }
-
-    .page-links a {
-      text-decoration: none;
-      color: var(--silver);
-    }
-
-    .page-links a:hover {
-      color: var(--red-bright);
+    .photo-card figcaption {
+      padding: 11px 13px 13px;
     }
 
     footer {
-      padding: 25px 0 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 38px;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.86rem;
     }
 
-    @media (max-width: 700px) {
+    footer a {
+      color: var(--silver);
+      text-decoration: none;
+    }
+
+    footer a:hover,
+    footer a:focus-visible {
+      color: var(--red-bright);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--red-bright);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 800px) {
       .hero {
-        padding: 65px 0 50px;
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .hero-image {
+        width: min(100%, 650px);
       }
 
       .overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .overview-layout,
+      .technical-layout,
+      .results-panel {
         grid-template-columns: 1fr;
       }
 
-      .split {
+      .design-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
       }
 
-      .split.reverse .media,
-      .split.reverse .copy {
-        order: initial;
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .content-section {
+        padding: 58px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 36px, 1120px);
+      }
+
+      nav {
+        align-items: flex-start;
+      }
+
+      .brand {
+        font-size: 0.85rem;
+      }
+
+      nav a:last-child {
+        font-size: 0.88rem;
+      }
+
+      .overview,
+      .paper-grid,
       .gallery {
         grid-template-columns: 1fr;
       }
 
-      .content-section {
-        padding: 48px 0;
+      .spec-list,
+      .result-metrics {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .page-links {
+      .paper-preview {
+        height: 380px;
+      }
+
+      footer {
         flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -323,227 +558,293 @@
 
 <body>
   <div class="container">
-
-    <nav>
-      <a class="brand" href="../index.html">
-        KENDALL BINKLEY
-      </a>
-      <a href="../projects.html">
-        &larr; All Projects
-      </a>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="../index.html">KENDALL BINKLEY</a>
+      <a href="../projects.html">&larr; All Projects</a>
     </nav>
 
     <header class="hero">
-      <div class="eyebrow">
-        Robotics / Mechanical Engineering
+      <div class="hero-copy">
+        <div class="eyebrow">MIT The 77 Lab · Research Project</div>
+        <h1>Excavator Tilt Rotator</h1>
+        <p class="intro">
+          A compact, electrically actuated tilt rotator built for a 1/12-scale excavator, bringing more realistic attachments to teleoperation research and operator training.
+        </p>
+        <div class="tags" aria-label="Project topics">
+          <span class="tag">Robotics</span>
+          <span class="tag">Mechanical Design</span>
+          <span class="tag">Controls</span>
+          <span class="tag">Teleoperation</span>
+        </div>
       </div>
 
-      <h1>1/12-scale Excavator Tilt Rotator</h1>
-
-      <p class="intro">
-        1/12-scale excavator tilt rotator developed for teleoperation and operator training research at MIT's The 77 Lab.
-      </p>
-
-      <div class="tags">
-            <span class="tag">Research</span>
-            <span class="tag">CAD</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Manufacturing</span>
-      </div>
+      <figure class="hero-image">
+        <img
+          src="../images/tilt_rotator_imgs/tr_cover_photo.jpg"
+          alt="Red-and-black 1/12-scale excavator tilt rotator with its bucket attached"
+          fetchpriority="high">
+        <figcaption>Final tilt-rotator assembly with bucket attachment.</figcaption>
+      </figure>
     </header>
 
-    <section class="overview">
-      <div class="overview-item">
-        <span>ROLE</span>
-        <strong>Undergraduate Researcher</strong>
+    <section class="overview" aria-label="Project specifications">
+      <div class="stat">
+        <strong>50&deg;</strong>
+        <span>Bucket tilt range</span>
       </div>
-
-      <div class="overview-item">
-        <span>TOOLS</span>
-        <strong>Programming / 3D Printing / Manual Machining</strong>
+      <div class="stat">
+        <strong>360&deg;</strong>
+        <span>Continuous rotation</span>
       </div>
-
-      <div class="overview-item">
-        <span>PROJECT</span>
-        <strong>MIT The 77 Lab</strong>
+      <div class="stat">
+        <strong>2.26 N&middot;m</strong>
+        <span>Peak output torque measured</span>
+      </div>
+      <div class="stat">
+        <strong>1.13 kg</strong>
+        <span>Assembly total weight</span>
       </div>
     </section>
 
     <main>
-
       <section class="content-section" id="overview">
-        <div class="section-number">01 / OVERVIEW</div>
-        <h2>What is a Tilt Rotator?</h2>
-
-        <div class="split">
-          <figure class="media">
-            <img
-              src="../images/tilt_rotator_imgs/tr_cover_photo.jpg"
-              alt="Fully Assembled Tilt Rotator"
-              loading="lazy">
-            <figcaption>
-              Fully Assembled and functional Tilt Rotator.
-            </figcaption>
-          </figure>
-
-          <div class="copy">
+        <div class="section-number">01 / PROJECT OVERVIEW</div>
+        <h2>More motion at the end of the arm</h2>
+        <div class="overview-layout">
+          <div>
             <p>
-               ARES is a 30-pound combat robot competing in the National Havoc Robotics League (NHRL). Its primary weapon is a precision-machined S7 tool steel beater bar, designed with mass concentrated toward its outer edges to maximize rotational inertia and deliver substantial kinetic energy upon impact. The rest of the robot serves as a durable, high-speed platform, maneuvering to deliver weapon strikes while evading and defending against opposing attacks.
+              A conventional excavator bucket mainly curls and uncurls. A tilt rotator adds two more degrees of freedom: the bucket can tilt from side to side and rotate continuously, helping an operator approach a task from different angles without repositioning the excavator.
+            </p>
+            <p>
+              I worked on a 1/12-scale version for MIT's The 77 Lab. The attachment and integrated grapple are designed to fit a miniature training excavator while supporting research on remote operation, control interfaces, and operator training.
             </p>
           </div>
+          <figure class="overview-photo">
+            <img
+              src="../images/tilt_rotator_imgs/tr_full_excavator.jpg"
+              alt="Miniature excavator with the tilt rotator mounted at the end of its arm"
+              loading="lazy">
+            <figcaption>The tilt rotator installed on the scaled excavator.</figcaption>
+          </figure>
         </div>
       </section>
 
       <section class="content-section" id="design">
-        <div class="section-number">02 / Design</div>
-        <h2>My Work / Contributions</h2>
-
+        <div class="section-number">02 / MECHANICAL DESIGN</div>
+        <h2>An electrical differential in a tight envelope</h2>
         <p class="section-intro">
-          Since joining the ARES team in January 2026, I have designed and implemented several components for the robot.
+          Full-size tilt rotators commonly use hydraulic actuation. At 1/12 scale, reproducing that architecture would add cost and complexity, so the project uses a compact, stepper-driven mechanical differential instead.
         </p>
 
-        <div class="split">
-          <figure class="media">
+        <div class="technical-layout">
+          <figure class="technical-photo">
             <img
-              src="../images/ARES_imgs/ARES_antidrum_forks.JPG"
-              alt="ARES Anti-drum forks"
+              src="../images/tilt_rotator_imgs/tr_gear_assembly.jpg"
+              alt="Internal gears and shafts used in the tilt rotator's differential mechanism"
               loading="lazy">
-            <figcaption>
-              ARES at the October 2026 NHRL Competition, with my newly designed "Anti-Drum Forks."
-            </figcaption>
+            <figcaption>Gear train components for the electrical differential.</figcaption>
           </figure>
-
-          <div class="copy">
-            <h3>Anti-Drum Forks</h3>
+          <div>
+            <h3>Differential motion</h3>
             <p>
-              Wide vertical spinners, commonly known as beaters or drums, are becoming increasingly prevalent in combat robotics due to their ability to deliver significant kinetic energy upon impact. One effective countermeasure is to deflect these impacts back into the opposing weapon using sloped, metal-tipped forks. I designed these forks from A36 steel, using a hydraulic press brake to form the angled profiles needed to counter these powerful weapons and withstand repeated impacts. The steel tips are mounted to more compliant UHMW extensions, reducing weight while remaining protected by the steel contact surfaces.
+              Two motor inputs work through a differential gearbox to produce the attachment's tilt and rotation motions. Non-backdrivable worm gear stages help hold the selected position without continuously supplying motor holding current.
+            </p>
+            <h3>Designed around the excavator</h3>
+            <p>
+              The mechanism had to deliver useful torque and motion while staying inside the host machine's small mounting envelope. The mechanical paper reports a maximum height of 85.7 mm, a 135 &times; 135 mm platform envelope, and a 2 kg final assembly.
             </p>
           </div>
         </div>
 
-        <div class="split reverse">
-          <figure class="media">
-            <img
-              src="../images/ARES_imgs/ARES_top_armor_3.JPG"
-              alt="ARES New AR500 Top Armor"
-              loading="lazy">
-            <figcaption>
-              ARES at the October 2026 NHRL Competition, with my newly designed heavy top armor.
-            </figcaption>
-          </figure>
-
-          <div class="copy">
-            <h3>AR500 Heavy Top Armor</h3>
-            <p>
-              Another increasingly common threat in combat robotics is the hammersaw, which combines a smaller spinning weapon with a hammer mechanism to precisely direct strikes onto the tops of opposing robots. These attacks can damage vulnerable internal components that are otherwise well protected, including the lithium-polymer batteries that power the robot.
-
-              To prepare for these matchups, I designed a new top armor configuration for ARES using 1/8-inch AR500 steel to protect its internal components against penetrating strikes. This design proved particularly effective during our first fight in October 2026, when we faced two hammersaws simultaneously and emerged relatively unscathed.
-            </p>
-          </div>
+        <div class="design-grid">
+          <article class="design-card">
+            <span class="card-index">01 / TILT</span>
+            <h3>Side-to-side bucket angle</h3>
+            <p>A 150&deg; tilt range gives the operator more freedom to orient the bucket for a task.</p>
+          </article>
+          <article class="design-card">
+            <span class="card-index">02 / ROTATION</span>
+            <h3>Continuous bucket rotation</h3>
+            <p>The attachment can rotate continuously through 360&deg;, rather than stopping at a fixed angle.</p>
+          </article>
+          <article class="design-card">
+            <span class="card-index">03 / GRAPPLE</span>
+            <h3>Interchangeable work</h3>
+            <p>A grapple attachment extends the platform beyond digging, enabling pickup and placement tasks.</p>
+          </article>
         </div>
+      </section>
 
-        <div class="split">
-          <figure class="media">
-            <img
-              src="../images/ARES_imgs/ARES_new_ears.JPG"
-              alt="ARES New Inverted Drive Ears"
-              loading="lazy">
-            <figcaption>
-              Newly designed and manufactured ARES "ears," used for inverted driving.
-            </figcaption>
-          </figure>
-
-          <div class="copy">
-            <h3>UHMW Inverted Drive Ears</h3>
+      <section class="content-section" id="controls">
+        <div class="section-number">03 / ELECTRICAL &amp; CONTROL</div>
+        <h2>Stepper-driven, remotely configurable</h2>
+        <div class="technical-layout">
+          <div>
+            <h3>Compact motion control</h3>
             <p>
-               One issue ARES experienced at previous competitions was with its inverted driving system. When facing robots with horizontal spinners or competing in more chaotic fights, the inverted drive "ears" mounted atop the robot were prone to breaking. In some cases, the broken pieces would fall into the weapon mechanism, jamming it entirely and making self-righting more difficult. To address this, I redesigned the ears to sit much deeper within ARES, moving them out of the primary impact zone and reducing the likelihood of debris interfering with the weapon. I then CNC-machined the redesigned components in-house, improving their integration with the existing chassis and helping ARES maintain reliable driving and weapon operation throughout a fight.
+              The control system combines NEMA 8 stepper motors with TMC2209 stepper drivers and an ESP32 microcontroller. This compact hardware stack provides independent motor actuation for the attachment's motions.
+            </p>
+            <h3>Built for experimentation</h3>
+            <p>
+              UART communication allows motor operating modes to be adjusted during development. Combined with the worm-gear transmission's resistance to backdriving, the setup supports repeatable motion experiments without relying on continuous holding current.
             </p>
           </div>
+          <figure class="technical-photo">
+            <img
+              src="../images/tilt_rotator_imgs/tr_electronics_1.jpg"
+              alt="Prototype electronics with a microcontroller and stepper-driver boards wired on a breadboard"
+              loading="lazy">
+            <figcaption>Prototype motor-control electronics during system development.</figcaption>
+          </figure>
         </div>
       </section>
 
       <section class="content-section" id="testing">
-        <div class="section-number">04 / COMPETING AND TESTING</div>
-        <h2>Performance at Competition</h2>
-
-        <div class="split">
-          <figure class="media">
+        <div class="section-number">04 / PERFORMANCE &amp; TESTING</div>
+        <h2>Measured against the design targets</h2>
+        <div class="results-panel">
+          <p>
+            Testing reported in the mechanical design paper showed the final mechanism exceeding its 200 N&middot;cm output-torque design requirement. The assembly also demonstrated the intended range of motion and rotation speed for scaled excavator training and teleoperation research.
+          </p>
+          <div class="result-metrics" aria-label="Reported test results">
+            <div class="result-metric">
+              <strong>226.0 N&middot;cm</strong>
+              <span>Peak output torque</span>
+            </div>
+            <div class="result-metric">
+              <strong>53.3%</strong>
+              <span>Measured mechanical efficiency</span>
+            </div>
+            <div class="result-metric">
+              <strong>7.5 rpm</strong>
+              <span>Continuous rotation speed</span>
+            </div>
+            <div class="result-metric">
+              <strong>200 N&middot;cm</strong>
+              <span>Output-torque design requirement</span>
+            </div>
+          </div>
+        </div>
+        <div class="technical-layout">
+          <figure class="technical-photo">
             <img
-              src="../images/ARES_imgs/ARES_april_26.JPG"
-              alt="ARES in a match"
+              src="../images/tilt_rotator_imgs/tr_excavator_1.jpg"
+              alt="Tilt rotator fitted to the miniature excavator arm during an integration check"
               loading="lazy">
-            <figcaption>
-              ARES, going into the Finals of the April 2026 NHRL Competition.
-            </figcaption>
+            <figcaption>Checking fit and motion on the excavator arm.</figcaption>
           </figure>
-
-          <div class="copy">
-            <h3>Results:</h3>
+          <div>
+            <h3>From mechanism to platform</h3>
             <p>
-              March 2026: Quarter-Finalist<br>
-              April 2026: Finalist<br>
-              October 2026: Semi-Finalist<br> <br>
-
-              Lifetime Match Record: 27 Wins, 13 Losses
+              Integration brings the two motorized axes, gearbox, bucket, and excavator mounting interface together as one attachment. The scaled platform offers a lower-cost, repeatable environment for developing and evaluating remote-control methods before they are considered for full-size machinery.
             </p>
           </div>
         </div>
+      </section>
 
-        <div class="results">
-          <h3>CURRENT CONCLUSION</h3>
-          <p>
-            ARES has had a great year so far! Through designing and implementing several key modifications, I have helped improve the robot's durability and reliability while learning from the failures and challenges we've encountered along the way. As we prepare for the NHRL World Championship in December 2026, I am excited to continue refining my designs, identifying areas for improvement, and developing new modifications to give ARES an edge over the competition.
-          </p>
+      <section class="content-section" id="papers">
+        <div class="section-number">05 / RESEARCH PAPERS</div>
+        <h2>Read the research</h2>
+        <p class="section-intro">
+          Both papers were presented at the 2026 IEEE MIT Undergraduate Research Technology Conference (URTC). Scroll within each preview to browse; use the links below to open or download the full paper.
+        </p>
+
+        <div class="paper-grid">
+          <article class="paper-card">
+            <div class="paper-details">
+              <h3>Mechanical Design</h3>
+              <p>Electrical differential, packaging, and mechanical performance.</p>
+            </div>
+            <iframe
+              class="paper-preview"
+              src="../files/Mechanical_paper_URTC_2026.pdf#page=2&amp;view=FitH&amp;toolbar=0&amp;navpanes=0"
+              title="Preview of the mechanical design research paper"
+              loading="lazy">
+              <p>Your browser cannot display the PDF preview. Open the <a href="../files/Mechanical_paper_URTC_2026.pdf">mechanical design paper</a>.</p>
+            </iframe>
+            <div class="paper-actions">
+              <a href="../files/Mechanical_paper_URTC_2026.pdf" target="_blank" rel="noopener">Open full paper &nearr;</a>
+              <a href="../files/Mechanical_paper_URTC_2026.pdf" download>Download PDF</a>
+            </div>
+          </article>
+
+          <article class="paper-card">
+            <div class="paper-details">
+              <h3>Electrical &amp; Control Systems</h3>
+              <p>Stepper motors, motor drivers, embedded control, and teleoperation.</p>
+            </div>
+            <iframe
+              class="paper-preview"
+              src="../files/Electrical_and_Control_Systems_paper_URTC_2026.pdf#page=2&amp;view=FitH&amp;toolbar=0&amp;navpanes=0"
+              title="Preview of the electrical and control systems research paper"
+              loading="lazy">
+              <p>Your browser cannot display the PDF preview. Open the <a href="../files/Electrical_and_Control_Systems_paper_URTC_2026.pdf">electrical and control systems paper</a>.</p>
+            </iframe>
+            <div class="paper-actions">
+              <a href="../files/Electrical_and_Control_Systems_paper_URTC_2026.pdf" target="_blank" rel="noopener">Open full paper &nearr;</a>
+              <a href="../files/Electrical_and_Control_Systems_paper_URTC_2026.pdf" download>Download PDF</a>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="content-section" id="gallery">
-        <div class="section-number">05 / GALLERY</div>
-        <h2>More of my Work / ARES Photos</h2>
-
+        <div class="section-number">06 / BUILD GALLERY</div>
+        <h2>Development &amp; integration</h2>
+        <p class="section-intro">
+          A few views of the mechanism, electronics, and scaled excavator during development.
+        </p>
         <div class="gallery">
-          <figure>
+          <figure class="photo-card">
             <img
-              src="../images/ARES_imgs/ARES_beater_FEA.PNG"
-              alt="ARES Beater FEA"
+              src="../images/tilt_rotator_imgs/tr_first_assembly.jpg"
+              alt="Early assembly of the tilt-rotator mechanism"
               loading="lazy">
-            <figcaption>Finite Element Anaylsis I performed on the weapon of ARES, to learn critical failure points and design accordingly.</figcaption>
+            <figcaption>Early assembly and component-fit check.</figcaption>
           </figure>
-
-          <figure>
+          <figure class="photo-card">
             <img
-              src="../images/ARES_imgs/ARES_cracked_beater.JPG"
-              alt="ARES Broken Weapon"
+              src="../images/tilt_rotator_imgs/tr_grapple_mechanism_2.jpg"
+              alt="Close-up of the geared grapple mechanism"
               loading="lazy">
-            <figcaption>A broken weapon following the finals match of April 2026, warranting the FEA and weapon redesign.</figcaption>
+            <figcaption>Grapple mechanism and exposed gear train.</figcaption>
           </figure>
-
-          <figure>
+          <figure class="photo-card">
             <img
-              src="../images/ARES_imgs/ARES_hero_shot.JPG"
-              alt="Robot CAD detail"
+              src="../images/tilt_rotator_imgs/tr_complete_assembly.jpg"
+              alt="Completed tilt rotator and bucket assembly"
               loading="lazy">
-            <figcaption>ARES team photo in March 2026.</figcaption>
+            <figcaption>Completed tilt rotator with the bucket fitted.</figcaption>
           </figure>
-
+          <figure class="photo-card">
+            <img
+              src="../images/tilt_rotator_imgs/tr_excavator_3.jpg"
+              alt="Tilt rotator mounted to the scaled excavator"
+              loading="lazy">
+            <figcaption>Attachment mounted on the miniature excavator.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img
+              src="../images/tilt_rotator_imgs/tr_shafts_1.jpg"
+              alt="Machined and printed shaft components for the mechanism"
+              loading="lazy">
+            <figcaption>Shaft and gear components prepared for assembly.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img
+              src="../images/tilt_rotator_imgs/tr_conference_photo.jpg"
+              alt="Kendall presenting the research at the 2026 IEEE MIT URTC"
+              loading="lazy">
+            <figcaption>Presenting the project at URTC 2026.</figcaption>
+          </figure>
         </div>
       </section>
-
     </main>
 
-    <div class="page-links">
-      <a href="../projects.html">
-        &larr; Back to All Projects
-      </a>
-      <a href="../index.html">
-        Portfolio Home &uarr;
-      </a>
-    </div>
-
     <footer>
-      &copy; 2026 Kendall Binkley
+      <span>&copy; 2026 Kendall Binkley</span>
+      <a href="../projects.html">&larr; Back to all projects</a>
     </footer>
-
   </div>
 </body>
 </html>

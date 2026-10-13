@@ -243,8 +243,78 @@
   }
 
   .about {
-    max-width: 760px;
     color: var(--muted);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.72fr);
+    align-items: center;
+    gap: clamp(32px, 7vw, 88px);
+  }
+
+  #about h2 {
+    margin-bottom: 14px;
+  }
+
+  .about-copy {
+    position: relative;
+    padding: 28px 30px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--red-bright);
+    background: linear-gradient(120deg, var(--panel), rgba(32, 34, 38, 0.45));
+    color: var(--text);
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+
+  .about-copy p {
+    margin-bottom: 20px;
+  }
+
+  .about-portrait {
+    position: relative;
+    isolation: isolate;
+    justify-self: end;
+    width: min(100%, 340px);
+    aspect-ratio: 4 / 5;
+    padding: 10px;
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, var(--panel), #17181B);
+  }
+
+  .about-portrait::before {
+    position: absolute;
+    z-index: -1;
+    inset: 16px -12px -12px 16px;
+    border: 1px solid var(--accent);
+    content: "";
+  }
+
+  .about-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+  }
+
+  .about-portrait figcaption {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: fit-content;
+    max-width: calc(100% - 36px);
+    padding: 8px 12px;
+    border: 1px solid rgba(241, 237, 230, 0.16);
+    background: rgba(13, 13, 15, 0.82);
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
   /* ========================================
@@ -401,6 +471,21 @@
       grid-template-columns: 1fr;
     }
 
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .about-portrait {
+      justify-self: start;
+      width: min(100%, 340px);
+    }
+
+    .about-copy {
+      padding: 22px;
+      font-size: 1rem;
+    }
+
     section {
       padding: 48px 0;
     }
@@ -452,9 +537,7 @@
         <div class="eyebrow">Mechanical Engineering · Robotics · Design</div>
         <h1>Kendall Binkley</h1>
         <p>
-          Mechanical engineering student at MIT passionate about
-          turning ideas into functional systems through design,
-          prototyping, manufacturing, and robotics.
+          Mechanical engineering student at MIT
         </p>
         <a class="button" href="#projects">My work/Projects↘</a>
         <a class="button secondary" href="#contact">Contact Me</a>
@@ -462,15 +545,19 @@
 
       <section id="about">
         <div class="section-label">01 / About</div>
-        <h2>Engineering through making.</h2>
-        <p class="about">
-          I enjoy taking a problem from an initial concept through CAD,
-          fabrication, assembly, and testing. My interests span
-          mechanical systems, robotics, additive manufacturing,
-          electronics, and product development. I am particularly
-          interested in projects where hands-on experimentation
-          and thoughtful engineering come together.
-        </p>
+        <h2>About Me:</h2>
+        <div class="about-layout">
+          <div class="about-copy">
+            <p class="about">
+              I am a sophomore studying mechanical engineering at MIT! Originally from Alabama, I have been involved in robotics for years and continue to pursue that passion through MIT's Combat Robotics Club, where I serve as an executive member. Beyond robotics, I spend much of my time working in makerspaces across campus and designing and building personal and collaborative engineering projects, as you'll see below.
+            </p>
+            <a class="button secondary" href="files/KBinkleyResumeFall26.pdf" target="_blank" rel="noopener">View Resume (PDF)</a>
+          </div>
+          <figure class="about-portrait">
+            <img src="images/aboutme.jpg" alt="Kendall in the MIT makerspace">
+            <figcaption>Kendall Binkley · MIT</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section id="projects">
@@ -492,7 +579,7 @@
           </a>
 
           <a href="project_folder/tilt_rotator_project.html" class="project project-link">
-            <img class="project-image" src="images/tilt_rotator_imgs/tr_cover_photo.jpg" alt="1/12-scale Excavator Tilt Rotator">
+            <img class="project-image" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="1/12-scale excavator with the tilt rotator attached">
             <h2>Excavator Tilt Rotator</h2>
             <p>
               An excavator tilt rotator is an attachment that increases an excavator operator's degrees of freedom from three to five, allowing for greater flexibility and control.

@@ -147,9 +147,37 @@
 
     .hero-image img {
       width: 100%;
-      aspect-ratio: 1.18;
+      aspect-ratio: 4 / 3;
+      background: #17181B;
+      object-fit: contain;
+    }
+
+    .hero-image .cover-image-stage {
+      display: block;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #17181B;
+    }
+
+    .hero-image .cover-image-stage .cover-image-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(14px) brightness(0.45);
       object-fit: cover;
-      object-position: center 48%;
+      transform: scale(1.08);
+    }
+
+    .hero-image .cover-image-stage .cover-image-foreground {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      object-fit: contain;
     }
 
     .hero-image figcaption,
@@ -160,21 +188,6 @@
 
     .hero-image figcaption {
       padding: 10px 4px 2px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 26px;
-    }
-
-    .tag {
-      padding: 5px 10px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--silver);
-      font-size: 0.78rem;
     }
 
     .overview {
@@ -530,19 +543,16 @@
         <p class="intro">
           30-pound combat robot competing in the National Havoc Robotics League (NHRL).
         </p>
-        <div class="tags" aria-label="Project topics">
-          <span class="tag">CAD</span>
-          <span class="tag">Fabrication</span>
-          <span class="tag">Mechanical Design</span>
-          <span class="tag">Robotics</span>
-        </div>
       </div>
 
       <figure class="hero-image">
-        <img
-          src="../images/ARES_imgs/ARES_cover_photo.JPG"
-          alt="ARES team before the October 2026 NHRL competition"
-          fetchpriority="high">
+        <span class="cover-image-stage">
+          <img class="cover-image-backdrop" src="../images/ARES_imgs/ARES_cover_photo.JPG" alt="" aria-hidden="true">
+          <img class="cover-image-foreground"
+            src="../images/ARES_imgs/ARES_cover_photo.JPG"
+            alt="ARES team before the October 2026 NHRL competition"
+            fetchpriority="high">
+        </span>
         <figcaption>Fully Assembled ARES, prior to the October 2026 NHRL Competition.</figcaption>
       </figure>
     </header>
@@ -686,6 +696,34 @@
               alt="Robot CAD detail"
               loading="lazy">
             <figcaption>ARES team photo in March 2026.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_beater_redesign.JPG" alt="Redesigned ARES beater weapon" loading="lazy">
+            <figcaption>Redesigned beater weapon.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_dead_1.JPG" alt="ARES after a competition match" loading="lazy">
+            <figcaption>ARES after a match.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_internals.JPG" alt="Internal components of ARES" loading="lazy">
+            <figcaption>Internal components.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_top_armor_1.JPG" alt="ARES top armor" loading="lazy">
+            <figcaption>Top armor.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_top_armor_2.JPG" alt="ARES top armor detail" loading="lazy">
+            <figcaption>Top armor detail.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_two_copies.JPG" alt="Two ARES robot copies" loading="lazy">
+            <figcaption>Two ARES robot copies.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/ARES_imgs/ARES_wedge_fork_parts.JPG" alt="ARES wedge fork parts" loading="lazy">
+            <figcaption>Wedge fork parts.</figcaption>
           </figure>
         </div>
       </section>

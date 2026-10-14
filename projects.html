@@ -113,12 +113,41 @@
     .project-image {
       display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      margin-bottom: 18px;
+      aspect-ratio: 4 / 3;
       background: #17181B;
+      object-fit: contain;
+    }
+
+    .cover-image-stage {
+      display: block;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #17181B;
+    }
+
+    .cover-image-stage .cover-image-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(12px) brightness(0.45);
+      object-fit: cover;
+      transform: scale(1.08);
+    }
+
+    .cover-image-stage .project-image {
+      position: relative;
+      background: transparent;
+    }
+
+    .project-image-frame {
+      margin: 0 12px 30px 0;
+      padding: 8px;
       border: 1px solid var(--line);
       border-radius: 6px;
-      object-fit: cover;
+      background: #17181B;
     }
 
     .project h2 {
@@ -145,15 +174,6 @@
     .project-link:focus-visible {
       outline: 2px solid var(--red-bright);
       outline-offset: 4px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 4px 4px 0 0;
-      padding: 4px 9px;
-      color: var(--text);
-      background: #303137;
-      font-size: 0.78rem;
     }
 
     footer {
@@ -196,30 +216,100 @@
     <section class="project-grid">
 
       <a href="project_folder/ARES_project.html" class="project project-link">
-            <img class="project-image" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="ARES combat robot">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="" aria-hidden="true">
+                <img class="project-image" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="ARES combat robot">
+              </span>
+            </figure>
             <h2>ARES</h2>
             <p>
               ARES is a 30-pound combat robot competing in the National Havoc Robotics League (NHRL). As a primary member of the ARES team,
               I design, manufacture, and implement a variety of parts of the robot, as well as operate the weapon at several competitions a year.
             </p>
-            <span class="tag">Robotics</span>
-            <span class="tag">CAD</span>
-            <span class="tag">Fabrication</span>
       </a>
 
       <a href="project_folder/tilt_rotator_project.html" class="project project-link">
-            <img class="project-image" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="1/12-scale excavator with the tilt rotator attached">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="" aria-hidden="true">
+                <img class="project-image" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="1/12-scale excavator with the tilt rotator attached">
+              </span>
+            </figure>
             <h2>Excavator Tilt Rotator</h2>
             <p>
               An excavator tilt rotator is an attachment that increases an excavator operator's degrees of freedom from three to five, allowing for greater flexibility and control.
               As a researcher with MIT's 77 Lab, I developed a fully functional 1/12-scale tilt rotator for teleoperation and operator training research.
             </p>
-            <span class="tag">Research</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Manufacturing</span>
           </a>
 
-      <!-- Add more projects here. -->
+      <a href="project_folder/roller_skates_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <span class="cover-image-stage">
+            <img class="cover-image-backdrop" src="images/roller_skates_imgs/skates_full_assembly_cover_photo.jpg" alt="" aria-hidden="true">
+            <img class="project-image" src="images/roller_skates_imgs/skates_full_assembly_cover_photo.jpg" alt="Completed custom roller skates">
+          </span>
+        </figure>
+        <h2>Custom Roller Skates</h2>
+        <p>A custom roller-skate design and fabrication project. Visit the project page for build photos and more details.</p>
+      </a>
+
+      <a href="project_folder/OUTATIDE_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <img class="project-image" src="images/OUTATIDE_imgs/outatide_cover_photo.png" alt="OUTATIDE project">
+        </figure>
+        <h2>OUTATIDE</h2>
+        <p>Project description coming soon. Explore the project page for design, fabrication, and competition photos.</p>
+      </a>
+
+      <a href="project_folder/any_level_toolcart_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <span class="cover-image-stage">
+            <img class="cover-image-backdrop" src="images/any_level_toolcart_imgs/toolcart_cover_photo.jpg" alt="" aria-hidden="true">
+            <img class="project-image" src="images/any_level_toolcart_imgs/toolcart_cover_photo.jpg" alt="Any-Level Tool Cart">
+          </span>
+        </figure>
+        <h2>Any-Level Tool Cart</h2>
+        <p>Project description coming soon. Explore the project page for CAD, assembly, and testing photos.</p>
+      </a>
+
+      <a href="project_folder/black_panther_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <img class="project-image" src="images/black_panther_imgs/bp_cover_photo.png" alt="Black Panther cover photo">
+        </figure>
+        <h2>Black Panther</h2>
+        <p>Project description coming soon. Explore the project page for design and assembly photos.</p>
+      </a>
+
+      <a href="project_folder/lobstah_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <img class="project-image" src="images/lobstah_imgs/lobstah_full_cad_cover_photo.png" alt="Lobstah cover photo">
+        </figure>
+        <h2>Lobstah</h2>
+        <p>Project description coming soon. Explore the project page for CAD and component photos.</p>
+      </a>
+
+      <a href="project_folder/merry_go_round_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <span class="cover-image-stage">
+            <img class="cover-image-backdrop" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="" aria-hidden="true">
+            <img class="project-image" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="Merry-Go-Round isometric view">
+          </span>
+        </figure>
+        <h2>Merry-Go-Round</h2>
+        <p>Project description coming soon. Explore the project page for CAD, construction, and assembly photos.</p>
+      </a>
+
+      <a href="project_folder/mit_maps_project.html" class="project project-link">
+        <figure class="project-image-frame">
+          <span class="cover-image-stage">
+            <img class="cover-image-backdrop" src="images/mit_maps_imgs/map_cover_photo.jpg" alt="" aria-hidden="true">
+            <img class="project-image" src="images/mit_maps_imgs/map_cover_photo.jpg" alt="MIT Maps project">
+          </span>
+        </figure>
+        <h2>MIT Maps</h2>
+        <p>Project description coming soon. Explore the project page for map design and fabrication photos.</p>
+      </a>
 
     </section>
   </main>

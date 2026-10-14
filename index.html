@@ -375,15 +375,44 @@
 
   /* Project photography and CAD renders */
 
-  .project-image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 20px;
+  .project-image-frame {
+    margin: 0 12px 30px 0;
+    padding: 8px;
     border: 1px solid var(--line);
     border-radius: 6px;
     background: #17181B;
+  }
+
+  .project-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #17181B;
+    object-fit: contain;
+  }
+
+  .cover-image-stage {
+    display: block;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #17181B;
+  }
+
+  .cover-image-stage .cover-image-backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(12px) brightness(0.45);
     object-fit: cover;
+    transform: scale(1.08);
+  }
+
+  .cover-image-stage .project-image {
+    position: relative;
+    background: transparent;
   }
 
   .project-link {
@@ -401,18 +430,6 @@
   .project-link:focus-visible {
     outline: 2px solid var(--red-bright);
     outline-offset: 4px;
-  }
-
-  /* Project technology tags */
-
-  .tag {
-    display: inline-block;
-    margin: 3px 4px 3px 0;
-    padding: 3px 8px;
-    border: 1px solid #45464D;
-    border-radius: 2px;
-    color: var(--silver);
-    font-size: 0.78rem;
   }
 
   /* ========================================
@@ -567,27 +584,57 @@
         <div class="project-grid">
 
           <a href="project_folder/ARES_project.html" class="project project-link">
-            <img class="project-image" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="ARES combat robot">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="" aria-hidden="true">
+                <img class="project-image" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="ARES combat robot">
+              </span>
+            </figure>
             <h2>ARES</h2>
             <p>
               ARES is a 30-pound combat robot competing in the National Havoc Robotics League (NHRL). As a primary member of the ARES team,
               I design, manufacture, and implement a variety of parts of the robot, as well as operate the weapon at several competitions a year.
             </p>
-            <span class="tag">Robotics</span>
-            <span class="tag">CAD</span>
-            <span class="tag">Fabrication</span>
           </a>
 
           <a href="project_folder/tilt_rotator_project.html" class="project project-link">
-            <img class="project-image" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="1/12-scale excavator with the tilt rotator attached">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="" aria-hidden="true">
+                <img class="project-image" src="images/tilt_rotator_imgs/tr_full_excavator.jpg" alt="1/12-scale excavator with the tilt rotator attached">
+              </span>
+            </figure>
             <h2>Excavator Tilt Rotator</h2>
             <p>
               An excavator tilt rotator is an attachment that increases an excavator operator's degrees of freedom from three to five, allowing for greater flexibility and control.
               As a researcher with MIT's 77 Lab, I developed a fully functional 1/12-scale tilt rotator for teleoperation and operator training research.
             </p>
-            <span class="tag">Research</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Manufacturing</span>
+          </a>
+
+          <a href="project_folder/roller_skates_project.html" class="project project-link">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/roller_skates_imgs/skates_full_assembly_cover_photo.jpg" alt="" aria-hidden="true">
+                <img class="project-image" src="images/roller_skates_imgs/skates_full_assembly_cover_photo.jpg" alt="Completed custom roller skates">
+              </span>
+            </figure>
+            <h2>Custom Roller Skates</h2>
+            <p>
+              A custom roller-skate design and fabrication project. Visit the project page for build photos and more details.
+            </p>
+          </a>
+
+          <a href="project_folder/merry_go_round_project.html" class="project project-link">
+            <figure class="project-image-frame">
+              <span class="cover-image-stage">
+                <img class="cover-image-backdrop" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="" aria-hidden="true">
+                <img class="project-image" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="Merry-Go-Round isometric view">
+              </span>
+            </figure>
+            <h2>Merry-Go-Round</h2>
+            <p>
+              A large-scale mechanical build involving custom fabrication and assembly. Visit the project page for build photos and more details.
+            </p>
           </a>
 
         </div>

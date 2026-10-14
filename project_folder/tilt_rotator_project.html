@@ -147,9 +147,37 @@
 
     .hero-image img {
       width: 100%;
-      aspect-ratio: 1.18;
+      aspect-ratio: 4 / 3;
+      background: #17181B;
+      object-fit: contain;
+    }
+
+    .hero-image .cover-image-stage {
+      display: block;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #17181B;
+    }
+
+    .hero-image .cover-image-stage .cover-image-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(14px) brightness(0.45);
       object-fit: cover;
-      object-position: center 43%;
+      transform: scale(1.08);
+    }
+
+    .hero-image .cover-image-stage .cover-image-foreground {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      object-fit: contain;
     }
 
     .hero-image figcaption,
@@ -160,21 +188,6 @@
 
     .hero-image figcaption {
       padding: 10px 4px 2px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 26px;
-    }
-
-    .tag {
-      padding: 5px 10px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--silver);
-      font-size: 0.78rem;
     }
 
     .overview {
@@ -570,19 +583,16 @@
         <p class="intro">
           A compact, electrically actuated tilt rotator built for a 1/12-scale excavator, bringing more realistic attachments to teleoperation research and operator training.
         </p>
-        <div class="tags" aria-label="Project topics">
-          <span class="tag">Robotics</span>
-          <span class="tag">Mechanical Design</span>
-          <span class="tag">Controls</span>
-          <span class="tag">Teleoperation</span>
-        </div>
       </div>
 
       <figure class="hero-image">
-        <img
-          src="../images/tilt_rotator_imgs/tr_cover_photo.jpg"
-          alt="Red-and-black 1/12-scale excavator tilt rotator with its bucket attached"
-          fetchpriority="high">
+        <span class="cover-image-stage">
+          <img class="cover-image-backdrop" src="../images/tilt_rotator_imgs/tr_cover_photo.jpg" alt="" aria-hidden="true">
+          <img class="cover-image-foreground"
+            src="../images/tilt_rotator_imgs/tr_cover_photo.jpg"
+            alt="Red-and-black 1/12-scale excavator tilt rotator with its bucket attached"
+            fetchpriority="high">
+        </span>
         <figcaption>Final tilt-rotator assembly with bucket attachment.</figcaption>
       </figure>
     </header>
@@ -836,6 +846,46 @@
               alt="Kendall presenting the research at the 2026 IEEE MIT URTC"
               loading="lazy">
             <figcaption>Presenting the project at URTC 2026.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_3dprints_shafts_1.jpg" alt="3D-printed tilt-rotator shafts" loading="lazy">
+            <figcaption>3D-printed shafts.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_3dprints_shafts_2.jpg" alt="Additional 3D-printed tilt-rotator shafts" loading="lazy">
+            <figcaption>Additional 3D-printed shafts.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_excavator_2.jpg" alt="Tilt rotator fitted to the scaled excavator" loading="lazy">
+            <figcaption>Tilt rotator fitted to the excavator.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_grapple_mechanism_1.jpg" alt="Tilt-rotator grapple mechanism" loading="lazy">
+            <figcaption>Grapple mechanism.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_motors_assembled.jpg" alt="Assembled tilt-rotator motors" loading="lazy">
+            <figcaption>Assembled motors.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_old_assembly.jpg" alt="Earlier tilt-rotator assembly" loading="lazy">
+            <figcaption>Earlier assembly iteration.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_old_grapple.jpg" alt="Earlier tilt-rotator grapple design" loading="lazy">
+            <figcaption>Earlier grapple design.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_presentation.jpg" alt="Tilt-rotator research presentation" loading="lazy">
+            <figcaption>Research presentation.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_shafts_2.jpg" alt="Tilt-rotator shafts" loading="lazy">
+            <figcaption>Shaft components.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="../images/tilt_rotator_imgs/tr_side_view.jpg" alt="Side view of the tilt-rotator assembly" loading="lazy">
+            <figcaption>Side view of the assembly.</figcaption>
           </figure>
         </div>
       </section>

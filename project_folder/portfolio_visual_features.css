@@ -14,15 +14,17 @@ html.visual-enhanced .visual-section::before {
   z-index: -1;
   top: 0;
   right: 0;
-  width: min(46%, 420px);
+  width: min(62%, 560px);
   height: 100%;
   background-image:
-    linear-gradient(rgba(215, 217, 221, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(215, 217, 221, 0.12) 1px, transparent 1px);
-  background-size: 26px 26px;
+    linear-gradient(rgba(155, 192, 216, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 192, 216, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(155, 192, 216, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 192, 216, 0.1) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px;
   content: "";
-  opacity: 0.6;
-  mask-image: linear-gradient(90deg, transparent, #000 75%);
+  opacity: 0.9;
+  mask-image: linear-gradient(90deg, transparent, #000 42%);
   pointer-events: none;
 }
 

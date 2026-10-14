@@ -1,0 +1,281 @@
+html.visual-enhanced h1,
+html.visual-enhanced h2,
+html.visual-enhanced h3 {
+  font-family: "Bahnschrift", "Aptos Display", "Segoe UI", sans-serif;
+}
+
+html.visual-enhanced .visual-section {
+  position: relative;
+  isolation: isolate;
+}
+
+html.visual-enhanced .visual-section::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: min(46%, 420px);
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(215, 217, 221, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 217, 221, 0.12) 1px, transparent 1px);
+  background-size: 26px 26px;
+  content: "";
+  opacity: 0.6;
+  mask-image: linear-gradient(90deg, transparent, #000 75%);
+  pointer-events: none;
+}
+
+html.visual-enhanced figure figcaption {
+  position: relative;
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 12px 15px 13px 19px;
+  border-top: 1px solid rgba(215, 217, 221, 0.1);
+  background: linear-gradient(110deg, rgba(215, 217, 221, 0.035), transparent 72%);
+  color: var(--silver, #D7D9DD);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+html.visual-enhanced figure figcaption::before {
+  position: absolute;
+  top: 17px;
+  bottom: 17px;
+  left: 0;
+  width: 2px;
+  background: var(--accent, #B8202F);
+  content: "";
+}
+
+html.visual-enhanced .hero-image,
+html.visual-enhanced .about-portrait {
+  background: #17181B;
+}
+
+html.visual-enhanced .about-portrait::before {
+  content: none;
+}
+
+html.visual-enhanced .hero-image::after {
+  position: absolute;
+  z-index: -1;
+  inset: 18px -12px -12px 18px;
+  border: 1px solid var(--accent, #B8202F);
+  content: "";
+  pointer-events: none;
+}
+
+html.visual-enhanced .hero-image figcaption,
+html.visual-enhanced .about-portrait figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 36px);
+  min-height: 0;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid #393A40;
+  background: #0D0D0F;
+  color: #F1EDE6;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+html.visual-enhanced .hero-image figcaption::before,
+html.visual-enhanced .about-portrait figcaption::before {
+  content: none;
+}
+
+html.visual-enhanced .hero-image figcaption,
+html.visual-enhanced .photo-card figcaption,
+html.visual-enhanced .technical-photo figcaption,
+html.visual-enhanced .overview-photo figcaption,
+html.visual-enhanced .media figcaption,
+html.visual-enhanced .about-portrait figcaption {
+  color: var(--silver, #D7D9DD);
+}
+
+html.visual-enhanced .hero-image figcaption {
+  margin-top: 10px;
+}
+
+html.visual-enhanced .photo-card figcaption {
+  margin-top: 0;
+}
+
+html.visual-enhanced .visual-photo-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+html.visual-enhanced .cover-image-stage > .visual-photo-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+html.visual-enhanced .cover-image-stage > .visual-photo-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+html.visual-enhanced .about-portrait > .visual-photo-trigger {
+  position: absolute;
+  inset: 10px;
+  width: auto;
+  height: auto;
+}
+
+html.visual-enhanced .about-portrait > .visual-photo-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+html.visual-enhanced .visual-photo-trigger:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--red-bright, #E13B49);
+  outline-offset: -4px;
+}
+
+html.visual-enhanced .visual-photo-trigger img {
+  transition: transform 0.35s ease;
+}
+
+html.visual-enhanced .visual-photo-trigger:hover img {
+  transform: scale(1.025);
+}
+
+html.visual-enhanced.visual-ready [data-visual-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+html.visual-enhanced.visual-ready [data-visual-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-lightbox {
+  width: min(1100px, calc(100vw - 36px));
+  max-width: none;
+  max-height: calc(100vh - 36px);
+  padding: 18px;
+  border: 1px solid var(--line, #393A40);
+  border-radius: 9px;
+  background: #141518;
+  color: var(--text, #F1EDE6);
+}
+
+.portfolio-lightbox::backdrop {
+  background: rgba(5, 5, 7, 0.88);
+  backdrop-filter: blur(5px);
+}
+
+.portfolio-lightbox-toolbar,
+.portfolio-lightbox-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.portfolio-lightbox-toolbar {
+  margin-bottom: 12px;
+}
+
+.portfolio-lightbox-count {
+  color: var(--muted, #A7A9AF);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.portfolio-lightbox-button {
+  display: inline-grid;
+  min-width: 42px;
+  min-height: 42px;
+  place-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line, #393A40);
+  border-radius: 5px;
+  background: var(--panel, #202226);
+  color: var(--text, #F1EDE6);
+  font: inherit;
+  cursor: pointer;
+}
+
+.portfolio-lightbox-button:hover {
+  border-color: var(--red-bright, #E13B49);
+}
+
+.portfolio-lightbox-figure {
+  margin: 0;
+}
+
+.portfolio-lightbox-figure img {
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  object-fit: contain;
+}
+
+.portfolio-lightbox-figure figcaption {
+  min-height: 0;
+  margin-top: 0;
+  padding: 12px 2px 16px;
+  border: 0;
+  background: none;
+  color: var(--silver, #D7D9DD);
+}
+
+.portfolio-lightbox-figure figcaption::before {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.visual-enhanced {
+    scroll-behavior: auto;
+  }
+
+  html.visual-enhanced [data-visual-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html.visual-enhanced .visual-photo-trigger img {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-lightbox {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    padding: 12px;
+  }
+
+  .portfolio-lightbox-figure img {
+    max-height: calc(100vh - 190px);
+  }
+}

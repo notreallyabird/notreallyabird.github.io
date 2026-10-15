@@ -17,15 +17,6 @@
 
   root.classList.add("visual-enhanced");
 
-  document.querySelectorAll("main > section, main > .content-section").forEach((section) => {
-    section.classList.add("visual-section");
-  });
-  document.querySelectorAll(".project-grid").forEach((grid) => {
-    if (!grid.closest("main > section")) {
-      grid.classList.add("visual-section");
-    }
-  });
-
   revealItems.forEach((item) => item.setAttribute("data-visual-reveal", ""));
 
   if (lightboxImages.length) {

@@ -1,23 +1,3 @@
-html.blueprint-ready .blueprint-surface {
-  position: relative;
-  isolation: isolate;
-}
-
-html.blueprint-ready .blueprint-surface::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(155, 192, 216, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(155, 192, 216, 0.2) 1px, transparent 1px),
-    linear-gradient(rgba(155, 192, 216, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(155, 192, 216, 0.1) 1px, transparent 1px);
-  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px;
-  content: "";
-  mask-image: linear-gradient(90deg, transparent, #000 42%);
-  pointer-events: none;
-}
-
 html.fade-in-ready [data-fade-in] {
   opacity: 0;
   transform: translateY(18px);

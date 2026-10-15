@@ -1,0 +1,53 @@
+:root {
+  --portfolio-blueprint-grid:
+    linear-gradient(rgba(155, 192, 216, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 192, 216, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(155, 192, 216, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 192, 216, 0.1) 1px, transparent 1px);
+}
+
+html body {
+  background-image:
+    var(--portfolio-blueprint-grid),
+    radial-gradient(ellipse at 82% 8%, rgba(184, 32, 47, 0.12), transparent 34rem);
+  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px, auto;
+  background-attachment: scroll;
+}
+
+html body nav,
+html body .hero,
+html body .overview,
+html body .content-section,
+html body section,
+html body footer {
+  border-top-color: var(--accent, #B8202F);
+  border-bottom-color: var(--accent, #B8202F);
+}
+
+html body nav a:not(.brand):not(.logo),
+html body footer {
+  color: var(--text, #F1EDE6);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+html body footer a {
+  color: inherit;
+  font-weight: inherit;
+}
+
+html body nav a:not(.brand):not(.logo):hover,
+html body nav a:not(.brand):not(.logo):focus-visible,
+html body footer a:hover,
+html body footer a:focus-visible {
+  color: var(--red-bright, #E13B49);
+}
+
+html body.home-page .hero::before {
+  background-image:
+    var(--portfolio-blueprint-grid),
+    linear-gradient(rgba(13, 13, 15, 0.55), rgba(13, 13, 15, 0.88)),
+    url("images/hero_background.JPG");
+  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px, cover, cover;
+  background-position: left top, left top, left top, left top, center, center;
+}

@@ -6,13 +6,6 @@
   );
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!document.querySelector(".about-layout")) {
-    root.classList.add("blueprint-ready");
-    document.querySelectorAll("main > header, main > section").forEach((surface) => {
-      surface.classList.add("blueprint-surface");
-    });
-  }
-
   revealItems.forEach((item) => item.setAttribute("data-fade-in", ""));
 
   if (!reducedMotion && "IntersectionObserver" in window) {

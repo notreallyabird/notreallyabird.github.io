@@ -212,12 +212,10 @@ p {
   background: #0D0D0F;
 }
 
-.video-card--portrait {
-  width: min(100%, 360px);
-}
-
-.video-card--portrait video {
-  aspect-ratio: 9 / 16;
+.video-card--landscape-crop video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
 }
 
 .video-card figcaption {
@@ -235,10 +233,6 @@ p {
 
 .video-gallery .video-card {
   width: 100%;
-}
-
-.video-gallery .video-card.video-card--portrait {
-  width: min(100%, 360px);
 }
 
 .section-intro {

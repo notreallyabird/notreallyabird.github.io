@@ -62,28 +62,6 @@
   margin-bottom: 32px;
 }
 
-.video-card {
-  max-width: 900px;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: #17181B;
-}
-
-.video-card video {
-  display: block;
-  width: 100%;
-  max-height: min(70vh, 640px);
-  background: #0D0D0F;
-}
-
-.video-card figcaption {
-  padding: 12px 15px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .overview-layout,
 .technical-layout,
 .competition-layout {

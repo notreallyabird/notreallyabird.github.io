@@ -17,6 +17,20 @@
 
   root.classList.add("visual-enhanced");
 
+  document.querySelectorAll(".video-card video").forEach((video) => {
+    const applyOrientation = () => {
+      if (video.videoHeight > video.videoWidth) {
+        video.closest(".video-card")?.classList.add("video-card--portrait");
+      }
+    };
+
+    if (video.readyState >= 1) {
+      applyOrientation();
+    } else {
+      video.addEventListener("loadedmetadata", applyOrientation, { once: true });
+    }
+  });
+
   revealItems.forEach((item) => item.setAttribute("data-visual-reveal", ""));
 
   if (lightboxImages.length) {

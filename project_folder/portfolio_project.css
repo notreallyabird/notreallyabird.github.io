@@ -218,6 +218,16 @@ p {
   object-position: center;
 }
 
+.video-card--portrait {
+  width: min(100%, 360px);
+  margin-inline: auto;
+}
+
+.video-card--portrait video {
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+
 .video-card figcaption {
   padding: 12px 15px;
   color: var(--muted);

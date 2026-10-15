@@ -429,9 +429,28 @@
   ======================================== */
 
   .skills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .skill-group {
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--panel);
+  }
+
+  .skill-group h3 {
+    margin: 0 0 14px;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+
+  .skill-group .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .skill {
@@ -441,6 +460,12 @@
     background: var(--panel);
     color: var(--silver);
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 700px) {
+    .skills {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ========================================
@@ -548,7 +573,7 @@
         <p>
           Mechanical engineering student at MIT
         </p>
-        <a class="button" href="#projects">My work/Projects↘</a>
+        <a class="button" href="#projects">Selected work↘</a>
         <a class="button secondary" href="#contact">Contact Me</a>
       </header>
 
@@ -560,7 +585,8 @@
             <p class="about">
               I am a sophomore studying mechanical engineering at MIT! Originally from Alabama, I have been involved in robotics for years and continue to pursue that passion through MIT's Combat Robotics Club, where I serve as an executive member. Beyond robotics, I spend much of my time working in makerspaces across campus and designing and building personal and collaborative engineering projects, as you'll see below.
             </p>
-            <a class="button secondary" href="files/KBinkleyResumeFall26.pdf" target="_blank" rel="noopener">View Resume (PDF)</a>
+            <a class="button secondary" href="files/KBinkleyResumeOct26.pdf" target="_blank" rel="noopener">View Resume (PDF)</a>
+            <a class="button secondary" href="https://cults3d.com/en/users/notreallyabird/" target="_blank" rel="noopener noreferrer">Browse my 3D prints on Cults3D</a>
           </div>
           <figure class="about-portrait">
             <img src="images/aboutme.jpg" alt="Kendall in the MIT makerspace">
@@ -570,7 +596,7 @@
       </section>
 
       <section id="projects">
-        <div class="section-label">02 / My work</div>
+        <div class="section-label">02 / Selected work</div>
         <h2>Projects</h2>
 
         <div class="project-grid">
@@ -582,10 +608,9 @@
                 <img class="project-image" src="images/ARES_imgs/ARES_cover_photo.JPG" alt="ARES combat robot">
               </span>
             </figure>
-            <h2>ARES</h2>
+            <h2>ARES (30lb Combat Robot)</h2>
             <p>
-              ARES is a 30-pound combat robot competing in the National Havoc Robotics League (NHRL). As a primary member of the ARES team,
-              I design, manufacture, and implement a variety of parts of the robot, as well as operate the weapon at several competitions a year.
+              I co-lead CAD and help design and fabricate armor and weapon configurations for this 30 lb NHRL combat robot. I also drive and operate ARES at competition.
             </p>
           </a>
 
@@ -598,8 +623,7 @@
             </figure>
             <h2>Excavator Tilt Rotator</h2>
             <p>
-              An excavator tilt rotator is an attachment that increases an excavator operator's degrees of freedom from three to five, allowing for greater flexibility and control.
-              As a researcher with MIT's 77 Lab, I developed a fully functional 1/12-scale tilt rotator for teleoperation and operator training research.
+              At MIT's The 77 Lab, I designed and built a 1/12-scale electrically actuated tilt rotator for excavator teleoperation and operator training research.
             </p>
           </a>
 
@@ -612,7 +636,7 @@
             </figure>
             <h2>Custom Roller Skates</h2>
             <p>
-              A custom roller-skate design and fabrication project. Visit the project page for build photos and more details.
+              Custom clip-on skates designed to attach to regular shoes or boots, built with machined and laser-cut metal parts and 3D-printed TPU spacers.
             </p>
           </a>
 
@@ -620,12 +644,12 @@
             <figure class="project-image-frame">
               <span class="cover-image-stage">
                 <img class="cover-image-backdrop" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="" aria-hidden="true">
-                <img class="project-image" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="Merry-Go-Round isometric view">
+                <img class="project-image" src="images/merry_go_round_imgs/mgr_real_isometric_view_cover_photo.jpg" alt="Double-decker merry-go-round isometric view">
               </span>
             </figure>
-            <h2>Merry-Go-Round</h2>
+            <h2>Double-Decker Merry-Go-Round</h2>
             <p>
-              A large-scale mechanical build involving custom fabrication and assembly. Visit the project page for build photos and more details.
+              I was a 2026 East Campus REX build lead for this double-decker ride. It used a custom machined bearing and supported about 1,200 pounds during operation.
             </p>
           </a>
 
@@ -643,16 +667,61 @@
         <div class="section-label">03 / Capabilities</div>
         <h2>Technical skills</h2>
         <div class="skills">
-          <span class="skill">Onshape</span>
-          <span class="skill">Fusion 360</span>
-          <span class="skill">3D Printing</span>
-          <span class="skill">CNC Manufacturing</span>
-          <span class="skill">Mechanical Design</span>
-          <span class="skill">Electronics</span>
-          <span class="skill">Arduino</span>
-          <span class="skill">Python</span>
-          <span class="skill">MATLAB</span>
-          <span class="skill">Prototyping</span>
+          <article class="skill-group">
+            <h3>CAD, CAM &amp; 3D Printing</h3>
+            <div class="skills-list">
+              <span class="skill">Onshape</span>
+              <span class="skill">SolidWorks</span>
+              <span class="skill">Fusion 360</span>
+              <span class="skill">Mach3</span>
+              <span class="skill">Bambu Studio</span>
+              <span class="skill">Prusa</span>
+              <span class="skill">Creality</span>
+              <span class="skill">Formlabs</span>
+              <span class="skill">Orca</span>
+              <span class="skill">Snapmaker</span>
+              <span class="skill">Dremel</span>
+            </div>
+          </article>
+          <article class="skill-group">
+            <h3>Fabrication &amp; Machining</h3>
+            <div class="skills-list">
+              <span class="skill">CNC Machining</span>
+              <span class="skill">Manual Milling &amp; Turning</span>
+              <span class="skill">Waterjet Cutting</span>
+              <span class="skill">CO2 &amp; Metal Laser Cutting</span>
+              <span class="skill">3D Printing</span>
+              <span class="skill">Sheet Metal Bending</span>
+              <span class="skill">Soldering</span>
+              <span class="skill">Spot Welding</span>
+              <span class="skill">Woodworking</span>
+            </div>
+          </article>
+          <article class="skill-group">
+            <h3>Robotics &amp; Mechatronics</h3>
+            <div class="skills-list">
+              <span class="skill">Mechanical Design</span>
+              <span class="skill">Mechanism Design</span>
+              <span class="skill">Electromechanical Prototyping</span>
+              <span class="skill">Stepper Motor Drivers</span>
+              <span class="skill">Arduino</span>
+              <span class="skill">ESP32</span>
+              <span class="skill">Closed-Loop Feedback</span>
+              <span class="skill">Prototyping &amp; Testing</span>
+            </div>
+          </article>
+          <article class="skill-group">
+            <h3>Programming &amp; Computation</h3>
+            <div class="skills-list">
+              <span class="skill">Java</span>
+              <span class="skill">Python</span>
+              <span class="skill">C</span>
+              <span class="skill">Assembly</span>
+              <span class="skill">MATLAB</span>
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+            </div>
+          </article>
         </div>
       </section>
 
